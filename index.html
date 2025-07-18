@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temps de Pause</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Calcule facilement tes temps de pause au travail. Simple, rapide, et adapté à tous les écrans !" />
+  <!-- Open Graph / Facebook / Discord / Snapchat -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Calculateur de temps de pause" />
+  <meta property="og:description" content="Calcule facilement tes temps de pause au travail. Simple, rapide, et adapté à tous les écrans !" />
+  <meta property="og:url" content="https://ton-site-ou-lien.fr" />
+  <meta property="og:image" content="https://ton-site-ou-lien.fr/aperçu.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calculateur de temps de pause" />
+  <meta name="twitter:description" content="Calcule facilement tes temps de pause au travail. Simple, rapide, et adapté à tous les écrans !" />
+  <meta name="twitter:image" content="https://ton-site-ou-lien.fr/aperçu.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2563eb" />
+</head>
+<body>
+  <div class="container">
+    <h1>Calculateur de temps de pause</h1>
+
+    <label for="start">Heure de début :</label>
+    <input type="time" id="start" required />
+
+    <label for="end">Heure de fin :</label>
+    <input type="time" id="end" required />
+
+    <button id="calculate">Calculer</button>
+
+    <div class="result" id="resultArea" hidden>
+      <p><strong>Durée travail effectif :</strong> <span id="workTime">-</span></p>
+      <p><strong>Temps de pause dispo (7%) :</strong> <span id="pauseTime">-</span></p>
+
+      <label for="usedPause">Temps utilisé (en minutes) :</label>
+      <input type="number" id="usedPause" min="0" />
+
+      <button id="subtract">Soustraire</button>
+
+      <p><strong>Temps restant :</strong> <span id="remainingTime">-</span></p>
+
+      <button id="reset" class="reset">Réinitialiser la journée</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>
